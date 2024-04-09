@@ -45,6 +45,6 @@ export const StyledArrow = styled("div")(() => ({
   },
 }));
 
-export const StyledLeftArrow = styled(StyledArrow)(() => ({
-  transform: "rotate(180deg)",
-}));
+// export const StyledLeftArrow = styled(StyledArrow)(() => ({
+//   transform: "rotate(180deg)",
+// }));
