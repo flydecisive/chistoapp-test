@@ -1,3 +1,6 @@
+import SidebarState from "../../Store/Sidebar";
+import { observer } from "mobx-react-lite";
+
 import {
   StyledHeader,
   StyledTitle,
@@ -7,7 +10,7 @@ import {
 import Search from "../Search/Search";
 import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButton";
 
-function Header() {
+const Header = observer(() => {
   return (
     <StyledHeader>
       <StyledWrapper $gap={8}>
@@ -16,10 +19,14 @@ function Header() {
       </StyledWrapper>
       <StyledWrapper $gap={16}>
         <Search />
-        <PrimaryButton />
+        <PrimaryButton
+          onClick={() => {
+            SidebarState.setIsSidebarOpen();
+          }}
+        />
       </StyledWrapper>
     </StyledHeader>
   );
-}
+});
 
 export default Header;

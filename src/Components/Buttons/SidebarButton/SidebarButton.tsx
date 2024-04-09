@@ -3,10 +3,15 @@ import { StyledButton } from "./SidebarButton.styled";
 interface SidebarButtonProps {
   text: string;
   isPrimary: boolean;
+  onClick: () => void;
 }
 
-function SidebarButton({ text, isPrimary }: SidebarButtonProps) {
-  return <StyledButton $isPrimary={isPrimary}>{text}</StyledButton>;
+function SidebarButton({ text, isPrimary, onClick }: SidebarButtonProps) {
+  return (
+    <StyledButton $isPrimary={isPrimary} onClick={onClick}>
+      {text}
+    </StyledButton>
+  );
 }
 
 export default SidebarButton;

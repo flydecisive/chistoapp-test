@@ -12,5 +12,9 @@ export const StyledButton = styled("button")<{ $isPrimary: boolean }>(
     letterSpacing: "-0.05px",
     fontWeight: 475,
     background: `${$isPrimary ? "#A85757" : "#514A4A"}`,
+
+    "&:hover": {
+      cursor: "pointer",
+    },
   })
 );

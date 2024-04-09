@@ -1,29 +1,34 @@
 import styled from "styled-components";
 
-export const StyledBackdrop = styled("div")(() => ({
-  background: "#211B1B",
-  position: "absolute",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  zIndex: 30,
-  opacity: "14%",
-}));
+export const StyledBackdrop = styled("div")<{ $isSidebarOpen: boolean }>(
+  ({ $isSidebarOpen }) => ({
+    background: "#211B1B",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    zIndex: 30,
+    opacity: "14%",
+    display: `${$isSidebarOpen ? "block" : "none"}`,
+  })
+);
 
-export const StyledSidebar = styled("div")(() => ({
-  zIndex: 40,
-  position: "absolute",
-  top: 0,
-  right: 0,
-  width: "400px",
-  height: "100vh",
-  background: "#FFF",
-  boxSizing: "border-box",
-  padding: "24px",
-  display: "flex",
-  flexFlow: "column nowrap",
-}));
+export const StyledSidebar = styled("div")<{ $isSidebarOpen: boolean }>(
+  ({ $isSidebarOpen }) => ({
+    zIndex: 40,
+    position: "absolute",
+    top: 0,
+    right: 0,
+    width: "400px",
+    height: "100vh",
+    background: "#FFF",
+    boxSizing: "border-box",
+    padding: "24px",
+    display: `${$isSidebarOpen ? "flex" : "none"}`,
+    flexFlow: "column nowrap",
+  })
+);
 
 export const StyledSidebarHeading = styled("div")(() => ({
   display: "flex",

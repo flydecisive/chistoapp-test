@@ -11,8 +11,15 @@ import {
 import EditIcon from "../../assets/img/edit.svg";
 import Pagination from "../Pagination/Pagination";
 import DisplaySelector from "../DisplaySelector/DisplaySelector";
+import Store from "../../Store/Store";
+import { useEffect } from "react";
+import { observer } from "mobx-react-lite";
 
-function Content() {
+const Content = observer(() => {
+  useEffect(() => {
+    Store.getToken();
+  }, []);
+
   return (
     <StyledContent>
       <div>
@@ -60,6 +67,6 @@ function Content() {
       </StyledNavigation>
     </StyledContent>
   );
-}
+});
 
 export default Content;

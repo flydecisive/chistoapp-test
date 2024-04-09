@@ -1,3 +1,6 @@
+import SidebarState from "../../Store/Sidebar";
+import { observer } from "mobx-react-lite";
+
 import {
   StyledBackdrop,
   StyledSidebar,
@@ -15,14 +18,22 @@ import CrossIcon from "../../assets/img/cross.svg";
 import SidebarTextField from "../SidebarTextField/SidebarTextField";
 import SidebarButton from "../Buttons/SidebarButton/SidebarButton";
 
-function Sidebar() {
+const Sidebar = observer(() => {
   return (
     <>
-      <StyledBackdrop></StyledBackdrop>
-      <StyledSidebar>
+      <StyledBackdrop
+        $isSidebarOpen={SidebarState.isSidebarOpen}
+      ></StyledBackdrop>
+      <StyledSidebar $isSidebarOpen={SidebarState.isSidebarOpen}>
         <StyledSidebarHeading>
           <img src={FeatureIcon} alt="featire" />
-          <StyledCross src={CrossIcon} alt="cross" />
+          <StyledCross
+            onClick={() => {
+              SidebarState.setIsSidebarOpen();
+            }}
+            src={CrossIcon}
+            alt="cross"
+          />
         </StyledSidebarHeading>
         <StyledContentWrapper>
           <StyledFormWrapper>
@@ -54,13 +65,25 @@ function Sidebar() {
             />
           </StyledFormWrapper>
           <StyledButtonsWrapper>
-            <SidebarButton text="Отмена" isPrimary={false} />
-            <SidebarButton text="Подтвердить" isPrimary={true} />
+            <SidebarButton
+              text="Отмена"
+              isPrimary={false}
+              onClick={() => {
+                SidebarState.setIsSidebarOpen();
+              }}
+            />
+            <SidebarButton
+              text="Подтвердить"
+              isPrimary={true}
+              onClick={() => {
+                SidebarState.setIsSidebarOpen();
+              }}
+            />
           </StyledButtonsWrapper>
         </StyledContentWrapper>
       </StyledSidebar>
     </>
   );
-}
+});
 
 export default Sidebar;

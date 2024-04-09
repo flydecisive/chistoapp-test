@@ -2,7 +2,6 @@ import {
   StyledPagination,
   StyledPaginationItem,
   StyledArrow,
-  StyledLeftArrow,
 } from "./Pagination.styled";
 import ArrowIcon from "../../assets/img/arrow.svg";
 
